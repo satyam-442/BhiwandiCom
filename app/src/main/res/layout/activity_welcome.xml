@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity"
+    android:background="@drawable/bhiwandi">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgradient" />
+
+    <ImageView
+        android:id="@+id/welcomeLogo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bhiwandicomlogo" />
+
+    <TextView
+        android:id="@+id/welcomeSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeLogo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/croissant_one"
+        android:text="-Discover and Explore"
+        android:textColor="@color/whiteShade"
+        android:textSize="21sp" />
+
+    <LinearLayout
+        android:id="@+id/buttonLinear"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/welcomeLoginSlogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcomeLogo"
+            android:fontFamily="@font/croissant_one"
+            android:text="Already own account"
+            android:textColor="@color/whiteShade"
+            android:textSize="19sp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/welcomeLoginButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Login!"
+            android:padding="8dp"
+            android:fontFamily="@font/croissant_one"
+            android:textStyle="bold"
+            android:textColor="@color/whiteShade"
+            android:background="@drawable/buttongradient"/>
+
+        <TextView
+            android:id="@+id/welcomeRegisterSlogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcomeLogo"
+            android:fontFamily="@font/croissant_one"
+            android:text="Need new account!"
+            android:textColor="@color/whiteShade"
+            android:textSize="19sp"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/welcomeRegisterButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Register!"
+            android:padding="8dp"
+            android:fontFamily="@font/croissant_one"
+            android:textStyle="bold"
+            android:textColor="@color/whiteShade"
+            android:background="@drawable/buttongradient"/>
+
+    </LinearLayout>
+</RelativeLayout>

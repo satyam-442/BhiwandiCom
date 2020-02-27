@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginPhoneActivity"
+    android:background="@drawable/bhiwandi">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/backgradient" />
+
+    <ImageView
+        android:id="@+id/welcomeLogo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bhiwandicomlogo" />
+
+    <TextView
+        android:id="@+id/welcomeSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeLogo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/croissant_one"
+        android:text="-Discover and Explore"
+        android:textColor="@color/whiteShade"
+        android:textSize="21sp" />
+
+    <LinearLayout
+        android:id="@+id/loginLinear"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_above="@+id/loginAdminButton"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/croissant_one"
+            android:gravity="start"
+            android:text="Your Phone no.:"
+            android:textColor="@color/whiteShade"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/loginPhoneEmailET"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputgradient"
+            android:fontFamily="@font/croissant_one"
+            android:hint="+91-9876543210"
+            android:inputType="phone"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:textColor="@color/blueDark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/loginPwdSlogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/croissant_one"
+            android:gravity="start"
+            android:text="Your Password:"
+            android:textColor="@color/whiteShade"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/loginPhonePwdET"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/inputgradient"
+            android:fontFamily="@font/croissant_one"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:paddingStart="15dp"
+            android:textColor="@color/blueDark"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center">
+
+            <com.rey.material.widget.CheckBox
+                android:id="@+id/loginRememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Remember Me!"
+                android:gravity="center"
+                android:textColor="@color/blueDark"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:textColor="@color/blueDark"
+                android:textStyle="bold"
+                android:textAlignment="textEnd"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginPhoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttongradient"
+            android:fontFamily="@font/croissant_one"
+            android:gravity="center"
+            android:padding="8dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:text="Login!"
+            android:textColor="@color/whiteShade"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/loginNotAdminButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/buttongradient"
+        android:fontFamily="@font/croissant_one"
+        android:gravity="center"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="I'm not an Admin!"
+        android:textAllCaps="false"
+        android:textColor="@color/whiteShade"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/loginAdminButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/buttongradient"
+        android:fontFamily="@font/croissant_one"
+        android:gravity="center"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="I'm an Admin!"
+        android:textAllCaps="false"
+        android:textColor="@color/whiteShade"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <TextView
+        android:id="@+id/moving_text_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="your custom notification or personal ads here!!! your custom notification or personal ads here!!!"
+        android:textSize="22sp"
+        android:singleLine="true"
+        android:padding="10dp"
+        android:fontFamily="@font/bitter"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"/>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/moving_text_advertisement"
+        android:layout_below="@id/moving_text_notification"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCategory"
+        android:layout_below="@id/moving_text_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/recyclerViewCategory"
+        android:id="@+id/recycler_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginTop="5dp"/>
+</RelativeLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "265572897304",
+    "firebase_url": "https://bhiwandicom-fb286.firebaseio.com",
+    "project_id": "bhiwandicom-fb286",
+    "storage_bucket": "bhiwandicom-fb286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265572897304:android:a99627022483721187296d",
+        "android_client_info": {
+          "package_name": "com.example.bhiwandicom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265572897304-39kiojjgvfg1qpivroefr77odcqe5iq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bhiwandicom",
+            "certificate_hash": "a39db9f1c420d4b9e4e576a6e6f30618721642dc"
+          }
+        },
+        {
+          "client_id": "265572897304-apukuoi37vl9j5pbmr3kkv74v9mibgq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRjP3mW3WXjlU_ZKZcR638jNX3OaXB42Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265572897304-apukuoi37vl9j5pbmr3kkv74v9mibgq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

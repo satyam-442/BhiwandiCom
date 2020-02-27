@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminCategoryActivity">
+
+    <TextView
+        android:id="@+id/headingCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Select category to Add Product"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:padding="2dp"
+        android:fontFamily="@font/croissant_one"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/linear1_category"
+        android:layout_below="@id/headingCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginEnd="45dp">
+
+            <ImageView
+                android:id="@+id/htshirt"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/htshirt"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T-Shirts(half)"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginStart="30dp">
+
+            <ImageView
+                android:id="@+id/fshirt"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/fshirt"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T-Shirts(full)"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear2_category"
+        android:layout_below="@id/linear1_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginEnd="45dp">
+
+            <ImageView
+                android:id="@+id/trouser"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/trouser"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trouser"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginStart="30dp">
+
+            <ImageView
+                android:id="@+id/jeans"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/jeans"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jeans"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear3_category"
+        android:layout_below="@id/linear2_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginEnd="45dp">
+
+            <ImageView
+                android:id="@+id/wallet"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/wallet"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wallets"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginStart="30dp">
+
+            <ImageView
+                android:id="@+id/shoe"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/shoe"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shoes"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear4_category"
+        android:layout_below="@id/linear3_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/belts"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/belts"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belts"
+                android:textStyle="bold"
+                android:fontFamily="@font/bitter"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
