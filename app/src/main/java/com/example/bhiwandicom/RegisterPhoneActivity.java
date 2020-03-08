@@ -31,7 +31,7 @@ public class RegisterPhoneActivity extends AppCompatActivity
     FirebaseAuth mAuth;
     DatabaseReference userRef;
     ProgressDialog loadingBar;
-    Button registerPhoneAcc;
+    Button registerPhoneAcc, registerAdminButton,loginNotAdminButton;
     EditText Name, Phone, Password;
     String currentUserId;
 
@@ -48,6 +48,16 @@ public class RegisterPhoneActivity extends AppCompatActivity
         Phone = (EditText) findViewById(R.id.registerPhoneET);
         Password = (EditText) findViewById(R.id.registerPhonePwdET);
 
+
+        registerAdminButton = (Button) findViewById(R.id.registerAdminButton);
+        //loginNotAdminButton = (Button) findViewById(R.id.loginNotAdminButton);
+        registerAdminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regisAdmin = new Intent(RegisterPhoneActivity.this,RegisterAdminActivity.class);
+                startActivity(regisAdmin);
+            }
+        });
 
         loadingBar = new ProgressDialog(this);
 
