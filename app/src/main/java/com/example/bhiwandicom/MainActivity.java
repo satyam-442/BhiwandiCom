@@ -6,8 +6,10 @@ import android.os.Bundle;
 import com.example.bhiwandicom.Adapter.MainAdapter;
 import com.example.bhiwandicom.Adapter.SliderAdapter;
 import com.example.bhiwandicom.Model.MainModel;
+import com.example.bhiwandicom.Model.Products;
 import com.example.bhiwandicom.Model.SliderModel;
 import com.example.bhiwandicom.Prevalent.Prevalent;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -24,6 +26,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -60,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     final long DELAYTIME = 3000;
     final long PERIODTIME = 3000;
 
+    DatabaseReference productRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -72,10 +79,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
+        //DATABASE REFERENCE's
+        productRef = FirebaseDatabase.getInstance().getReference().child("Products");
+
         //HORIZONTAL RECYCLER VIEW
         recyclerViewCategory = findViewById(R.id.recyclerViewCategory);
-        Integer[] horiCategoryRecyclerViewImage = {R.drawable.htshirt,R.drawable.fshirt,R.drawable.trouser,
-                R.drawable.jeans,R.drawable.wallet,R.drawable.belts,R.drawable.shoe};
+        Integer[] horiCategoryRecyclerViewImage = {R.drawable.htshirt,
+                R.drawable.fshirt,
+                R.drawable.trouser,
+                R.drawable.jeans,
+                R.drawable.wallet,
+                R.drawable.belts,
+                R.drawable.shoe};
         String[] horiCategoryRecyclerViewText = {"Half Shirt","Full Shirt","Trouser","Jeans","Wallet","Belts","Shoe"};
 
         mainModels = new ArrayList<>();
@@ -178,6 +193,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
+
+    /*@Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>().setQuery()
+
+    }*/
 
     /////////PAGE LOOPER METHOD
     private void pageLooper()
