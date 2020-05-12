@@ -13,15 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterAdminActivity"></activity>
+        <activity android:name=".Owner.AddAdminStoreToDatabaseActivity"></activity>
+        <activity android:name=".RegisterAdminActivity" />
         <activity android:name=".ClothesActivity" />
         <activity android:name=".ShowProductsActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AdminCategoryActivity" />
-        <activity android:name=".AdminAddNewProductActivity" />
+        <activity android:name=".Admin.AdminCategoryActivity" />
+        <activity android:name=".Admin.AdminAddNewProductActivity" />
         <activity android:name=".LoginPhoneActivity" />
         <activity
             android:name=".RegisterPhoneActivity"

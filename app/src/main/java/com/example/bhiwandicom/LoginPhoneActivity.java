@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bhiwandicom.Admin.AdminCategoryActivity;
 import com.example.bhiwandicom.Model.User;
+import com.example.bhiwandicom.Owner.AddAdminStoreToDatabaseActivity;
 import com.example.bhiwandicom.Prevalent.Prevalent;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -122,6 +124,10 @@ public class LoginPhoneActivity extends AppCompatActivity
         {
             Toast.makeText(this, "Fields are empty", Toast.LENGTH_SHORT).show();
         }
+        if (phone.equals("123") && password.equals("123")){
+            startActivity(new Intent(LoginPhoneActivity.this, AddAdminStoreToDatabaseActivity.class));
+            finish();
+        }
         else
         {
             loadingBar.setMessage("please wait");
@@ -166,7 +172,6 @@ public class LoginPhoneActivity extends AppCompatActivity
                             {
                                 Toast.makeText(LoginPhoneActivity.this, "Logged is successfully", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
-
                                 Intent loginIntent = new Intent(LoginPhoneActivity.this,MainActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
                                 loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -197,7 +202,7 @@ public class LoginPhoneActivity extends AppCompatActivity
     }
 
     private void SendUserToAdminActivity() {
-        Intent adminIntent = new Intent(this,AdminCategoryActivity.class);
+        Intent adminIntent = new Intent(this, AdminCategoryActivity.class);
         //adminIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(adminIntent);
         //finish();

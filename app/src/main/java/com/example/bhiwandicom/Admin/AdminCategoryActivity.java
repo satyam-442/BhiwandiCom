@@ -1,4 +1,4 @@
-package com.example.bhiwandicom;
+package com.example.bhiwandicom.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.bhiwandicom.R;
 
 public class AdminCategoryActivity extends AppCompatActivity
 {
