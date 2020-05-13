@@ -2,9 +2,13 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alegreya</item>
+        <item>@font/antic</item>
+        <item>@font/bangers</item>
         <item>@font/bitter</item>
         <item>@font/chewy</item>
         <item>@font/croissant_one</item>
+        <item>@font/montserrat</item>
+        <item>@font/montserrat_bold</item>
         <item>@font/pacifico</item>
     </array>
 </resources>

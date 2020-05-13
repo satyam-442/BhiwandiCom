@@ -13,7 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Owner.AddAdminStoreToDatabaseActivity"></activity>
+        <activity android:name=".DemoActivity"></activity>
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Owner.AddAdminStoreToDatabaseActivity" />
         <activity android:name=".RegisterAdminActivity" />
         <activity android:name=".ClothesActivity" />
         <activity android:name=".ShowProductsActivity" />
@@ -29,13 +38,7 @@
             android:parentActivityName=".WelcomeActivity" />
         <activity
             android:name=".WelcomeActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="fullSensor" />
 
         <meta-data
             android:name="preloaded_fonts"

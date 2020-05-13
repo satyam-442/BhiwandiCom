@@ -5,96 +5,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeActivity"
-    android:background="@drawable/bhiwandi">
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/backgradient" />
-
-    <ImageView
-        android:id="@+id/welcomeLogo"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/bhiwandicomlogo" />
+    tools:context=".WelcomeActivity">
 
     <TextView
-        android:id="@+id/welcomeSlogan"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcomeLogo"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-10dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/croissant_one"
-        android:text="-Discover and Explore"
-        android:textColor="@color/whiteShade"
-        android:textSize="21sp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="BhiwandiCom."
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#504F60"
+        android:fontFamily="@font/montserrat_bold"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat"
+        android:text="get anything from anywhere"
+        android:textColor="#504F60"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/moving_text_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/textView2"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/girlwithlaptop"/>
 
     <LinearLayout
-        android:id="@+id/buttonLinear"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="25dp"
-        android:layout_alignParentBottom="true">
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/yellow"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/welcomeLoginSlogan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/welcomeLogo"
-            android:fontFamily="@font/croissant_one"
-            android:text="Already own account"
-            android:textColor="@color/whiteShade"
-            android:textSize="19sp"
-            android:layout_gravity="center"
-            android:gravity="center"/>
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Everything for your comfort, Only here!"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/welcomeLoginButton"
-            android:layout_width="120dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
+            android:textAllCaps="false"
             android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttongradientwelcome"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="Login!"
-            android:padding="8dp"
-            android:fontFamily="@font/croissant_one"
-            android:textStyle="bold"
-            android:textColor="@color/whiteShade"
-            android:background="@drawable/buttongradient"/>
-
-        <TextView
-            android:id="@+id/welcomeRegisterSlogan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/welcomeLogo"
-            android:fontFamily="@font/croissant_one"
-            android:text="Need new account!"
-            android:textColor="@color/whiteShade"
-            android:textSize="19sp"
-            android:layout_gravity="center"
-            android:gravity="center"/>
+            android:text="Sign In"
+            android:elevation="10dp"
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/welcomeRegisterButton"
-            android:layout_width="120dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttongradientwelcome"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:text="Register!"
-            android:padding="8dp"
-            android:fontFamily="@font/croissant_one"
-            android:textStyle="bold"
-            android:textColor="@color/whiteShade"
-            android:background="@drawable/buttongradient"/>
+            android:elevation="10dp"
+            android:textAllCaps="false"
+            android:text="Create Account"
+            android:textSize="17sp" />
 
     </LinearLayout>
+
 </RelativeLayout>

@@ -1,5 +1,7 @@
 package com.example.bhiwandicom.Model;
 
+import android.widget.TextView;
+
 public class SliderModel
 {
     private int banner;
