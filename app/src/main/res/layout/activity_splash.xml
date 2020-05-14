@@ -24,30 +24,31 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginBottom="92dp"
         android:fontFamily="@font/bangers"
         android:text="Bhiwandi Com"
         android:textAlignment="center"
-        android:textSize="70sp"
         android:textColor="@color/black"
+        android:textSize="70sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="143dp"
+        android:layout_marginBottom="11dp"
         android:fontFamily="@font/antic"
         android:text="Made simple for you!"
-        android:textColor="@color/black"
-        android:textStyle="bold"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout >
