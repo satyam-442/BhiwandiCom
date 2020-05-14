@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DemoActivity"></activity>
+        <activity android:name=".Owner.OwnerMainActivity"></activity>
+        <activity android:name=".DemoActivity" />
         <activity android:name=".SplashActivity" />
         <activity android:name=".IntroActivity">
             <intent-filter>
@@ -43,6 +44,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

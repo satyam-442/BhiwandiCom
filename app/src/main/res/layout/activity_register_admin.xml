@@ -351,7 +351,7 @@
             android:text="Register!"
             android:padding="8dp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/croissant_one"
+            android:fontFamily="@font/montserrat"
             android:textStyle="bold"
             android:textColor="@color/blueDark"
             android:background="@drawable/btn_gradient_style"/>
