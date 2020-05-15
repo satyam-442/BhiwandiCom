@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.bhiwandicom.R;
@@ -31,6 +34,8 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -42,6 +47,8 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
     String currentUserId, gender;
     ProgressDialog loadingBar;
     TextInputLayout registerOwnerName, registerOwnerPhone, registerShopName, registerShopAddress, registerPassword;
+    TextView selectFromTime, selectToTime;
+    int fromHour, fromMinute, toHour, toMinute;
 
     ImageView setupProfileImage;
     Uri imageUri;
@@ -68,6 +75,54 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
         registerShopName = findViewById(R.id.registerShopName);
         registerShopAddress = findViewById(R.id.registerShopAddress);
         registerPassword = findViewById(R.id.registerPassword);
+
+        selectFromTime = findViewById(R.id.selectFromTime);
+        selectFromTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        AddAdminStoreToDatabaseActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                fromHour = hourOfDay;
+                                fromMinute = minute;
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.set(0,0,0,fromHour, fromMinute);
+                                //selectFromTime.setText(DateFormat.format("hh:mm aa"));
+                                android.text.format.DateFormat df = new android.text.format.DateFormat();
+                                selectFromTime.setText(df.format("hh:mm aa",calendar));
+                            }
+                        },12,0,false
+                );
+                timePickerDialog.updateTime(fromHour,fromMinute);
+                timePickerDialog.show();
+            }
+        });
+
+        selectToTime = findViewById(R.id.selectToTime);
+        selectToTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        AddAdminStoreToDatabaseActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                toHour = hourOfDay;
+                                toMinute = minute;
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.set(0,0,0,toHour, toMinute);
+                                //selectFromTime.setText(DateFormat.format("hh:mm aa"));
+                                android.text.format.DateFormat df = new android.text.format.DateFormat();
+                                selectToTime.setText(df.format("hh:mm aa",calendar));
+                            }
+                        },12,0,false
+                );
+                timePickerDialog.updateTime(toHour,toMinute);
+                timePickerDialog.show();
+            }
+        });
 
         setupProfileImage = findViewById(R.id.setupProfileImage);
         setupSelectImage = findViewById(R.id.setupSelectImage);

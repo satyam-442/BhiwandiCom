@@ -135,6 +135,54 @@
                         android:inputType="textPassword"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shop Time:"
+                    android:layout_marginTop="8dp"
+                    android:paddingStart="5dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/montserrat"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From "
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/selectFromTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint=" 10:00 am "
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" to "
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/selectToTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint=" 8:00 pm"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
