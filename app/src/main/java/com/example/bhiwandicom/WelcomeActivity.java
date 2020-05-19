@@ -3,10 +3,12 @@ package com.example.bhiwandicom;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -46,16 +48,23 @@ public class WelcomeActivity extends AppCompatActivity
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginPg = new Intent(WelcomeActivity.this, LoginPhoneActivity.class);
-                startActivity(loginPg);
+                Intent loginPg = new Intent(WelcomeActivity.this, LoginActivity.class);
+
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View,String>(login,"transition_login");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this,pairs);
+                startActivity(loginPg,options.toBundle());
             }
         });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regisPg = new Intent(WelcomeActivity.this, AcceptNumberActivity.class);
-                startActivity(regisPg);
+                Intent regisPg = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View,String>(login,"transition_register");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this,pairs);
+                startActivity(regisPg,options.toBundle());
             }
         });
 

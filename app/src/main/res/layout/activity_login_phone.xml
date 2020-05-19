@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPhoneActivity">
+    tools:context=".LoginPhoneActivity"
+    android:transitionName="transition_login">
 
     <!--<ImageView
         android:layout_width="match_parent"
@@ -188,8 +189,8 @@
         android:text="I'm an Admin!"
         android:textAllCaps="false"
         android:textColor="@color/whiteShade"
-        android:textStyle="bold" />-->
-    <!--<ImageView
+        android:textStyle="bold" />
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"

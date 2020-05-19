@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RegisterActivity"
+    tools:context=".LoginActivity"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:transitionName="transition_register">
+    android:transitionName="transition_login">
 
     <TextView
         android:id="@+id/textView"
@@ -36,7 +37,6 @@
         android:textStyle="bold" />
 
     <ScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/textView2"
@@ -70,7 +70,7 @@
                     android:layout_gravity="start"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/muli_black"
-                    android:text="Create \nAccount"
+                    android:text="Login"
                     android:textAllCaps="true"
                     android:textColor="@color/blueDark"
                     android:textSize="30sp"
@@ -85,43 +85,12 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userFullName"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Full Name"
-                    android:textColorHint="@color/blueDark">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="textPersonName" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userEmail"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:hint="E-mail"
-                    android:textColorHint="@color/blueDark">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="textEmailAddress" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/userContact"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:hint="Contact"
+                    android:hint="Phone"
                     android:textColorHint="@color/blueDark">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -149,13 +118,41 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                    android:text="Remember Me!"
+                    android:backgroundTint="@color/blueDark"
+                    android:textColor="@color/blueDark"
+                    android:layout_centerVertical="true"/>
+
+                <Button
+                    android:id="@+id/forget_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="#00000000"
+                    android:elevation="5dp"
+                    android:text="Forget Password?"
+                    android:textColor="@color/blueDark"
+                    android:transitionName="transition_forgotPwd" />
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/signup_next_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_gradient_style"
                 android:textColor="@color/blueDark"
-                android:text="N e x t"
+                android:text="Login"
                 android:textSize="18sp"
                 android:fontFamily="@font/muli_black"
                 android:layout_marginTop="20dp"
@@ -169,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:background="#00000000"
                 android:textColor="@color/blueDark"
-                android:text="L O G I N"
+                android:text="Create Account"
                 android:textSize="18sp"
                 android:fontFamily="@font/muli_black"
                 android:layout_marginTop="20dp"

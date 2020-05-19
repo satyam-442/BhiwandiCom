@@ -86,7 +86,8 @@
             android:gravity="center"
             android:text="Sign In"
             android:elevation="10dp"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:transitionName="transition_login"/>
 
         <Button
             android:id="@+id/welcomeRegisterButton"
@@ -100,7 +101,8 @@
             android:elevation="10dp"
             android:textAllCaps="false"
             android:text="Create Account"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:transitionName="transition_register"/>
 
     </LinearLayout>
 
