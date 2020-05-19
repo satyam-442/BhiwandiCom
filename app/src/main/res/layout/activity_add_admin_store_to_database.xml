@@ -153,34 +153,38 @@
                     android:padding="5dp">
 
                     <TextView
+                        android:id="@+id/tapFromDailog"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="From "
                         android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/selectFromTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint=" 10:00 am "
+                        android:hint=" click to add "
                         android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:inputType="time"/>
 
                     <TextView
+                        android:id="@+id/tapToDailog"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" to "
                         android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/selectToTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint=" 8:00 pm"
+                        android:hint=" click to add"
                         android:textSize="16sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:inputType="time"/>
 
                 </LinearLayout>
             </LinearLayout>

@@ -46,7 +46,6 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewCategory"
-                android:layout_below="@id/moving_text_advertisement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"/>
@@ -56,16 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"/>
-
-            <!--<androidx.recyclerview.widget.RecyclerView
-                android:layout_below="@id/recyclerViewCategory"
-                android:id="@+id/recycler_menu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="vertical"
-                android:layout_marginTop="5dp"/>-->
-
-            <GridLayout
+            <!--<GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnOrderPreserved="false"
@@ -222,9 +212,7 @@
 
                 </androidx.cardview.widget.CardView>
 
-            </GridLayout>
-
+            </GridLayout>-->
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

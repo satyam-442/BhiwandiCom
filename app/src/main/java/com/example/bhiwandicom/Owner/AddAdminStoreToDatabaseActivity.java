@@ -47,7 +47,8 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
     String currentUserId, gender;
     ProgressDialog loadingBar;
     TextInputLayout registerOwnerName, registerOwnerPhone, registerShopName, registerShopAddress, registerPassword;
-    TextView selectFromTime, selectToTime;
+    EditText selectFromTime, selectToTime;
+    TextView tapFromDailog,tapToDailog;
     int fromHour, fromMinute, toHour, toMinute;
 
     ImageView setupProfileImage;
@@ -76,8 +77,9 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
         registerShopAddress = findViewById(R.id.registerShopAddress);
         registerPassword = findViewById(R.id.registerPassword);
 
+        tapFromDailog = findViewById(R.id.tapFromDailog);
         selectFromTime = findViewById(R.id.selectFromTime);
-        selectFromTime.setOnClickListener(new View.OnClickListener() {
+        tapFromDailog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
@@ -100,8 +102,9 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
             }
         });
 
+        tapToDailog = findViewById(R.id.tapToDailog);
         selectToTime = findViewById(R.id.selectToTime);
-        selectToTime.setOnClickListener(new View.OnClickListener() {
+        tapToDailog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(
@@ -169,6 +172,8 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
         final String shopname = registerShopName.getEditText().getText().toString();
         final String shopaddress = registerShopAddress.getEditText().getText().toString();
         final String password = registerPassword.getEditText().getText().toString();
+        final String fromTime = selectFromTime.getText().toString();
+        final String toTime = selectToTime.getText().toString();
 
         if (TextUtils.isEmpty(name))
         {
@@ -189,6 +194,14 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password))
         {
             Toast.makeText(this, "Password is empty.", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(fromTime))
+        {
+            Toast.makeText(this, "Select from time.", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(toTime))
+        {
+            Toast.makeText(this, "Select to time.", Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -238,6 +251,8 @@ public class AddAdminStoreToDatabaseActivity extends AppCompatActivity {
             userMap.put("OwnerPhone",phone);
             userMap.put("ShopName",shopname);
             userMap.put("ShopAddress",shopaddress);
+            userMap.put("fromTime",fromTime);
+            userMap.put("toTime",toTime);
             userMap.put("Password",password);
             //userMap.put("uid",currentUserId);
             /*userMap.put("image",myUrl);*/

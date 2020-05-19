@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyPhoneActivity"
+    tools:context=".AcceptNumberActivity"
     android:background="#f2f5f8"
     android:orientation="vertical">
 
@@ -13,7 +13,8 @@
         android:id="@+id/appLogo"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="25dp">
 
         <ImageView
             android:transitionName="splash_logo_relay"
@@ -31,23 +32,26 @@
         android:gravity="center">
 
         <TextView
+            android:layout_marginTop="40dp"
             android:id="@+id/one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee"
             android:gravity="center"
             android:text="verify phone no"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textColor="@color/blueDark"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Enter code manually if not automatically authenticated"
+            android:text="Please enter your \nPhone number for verification"
             android:fontFamily="@font/antic"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="15sp"
+            android:textSize="18sp"
+            android:textColor="@color/blueDark"
             android:layout_below="@id/one"/>
 
     </RelativeLayout>
@@ -57,24 +61,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="45dp"
+        android:paddingTop="45dp"
+        android:paddingStart="45dp"
+        android:paddingEnd="45dp"
         android:layout_below="@id/appText">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="25dp"
-            android:id="@+id/verification_code_entered_by_user"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/countryCode"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Code"
+                    android:text="+91"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/verification_code_entered_by_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter OTP"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginStart="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <LinearLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Phone no."
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
@@ -85,6 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click to Re-send!"
+                android:textSize="16sp"
                 android:textColor="@color/black"/>
 
             <Button
@@ -99,7 +127,7 @@
 
         </LinearLayout>
 
-        <!--<com.chaos.view.PinView
+        <com.chaos.view.PinView
             android:id="@+id/verification_code_entered_by_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -108,34 +136,44 @@
             app:itemCount="6"
             android:gravity="center"
             android:layout_gravity="center">
-
         </com.chaos.view.PinView>-->
+
         <Button
             android:id="@+id/verify_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="V e r i f y"
+            android:text="g e n e r a t e   o t p"
             android:background="@drawable/btn_gradient_style"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:fontFamily="@font/montserrat"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="@color/blueDark"/>
+            android:textColor="@color/blueDark"
+            android:onClick="VerifyOtp"/>
 
         <ProgressBar
             android:visibility="invisible"
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"/>
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
-    <ImageView
-        android:layout_below="@id/operationLay"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_bottom_welcome"
-        android:scaleType="fitXY"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="5dp"
+        android:text="BhiwandiCom."
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"/>
 
 </RelativeLayout>

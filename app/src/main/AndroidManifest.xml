@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Owner.OwnerMainActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".AcceptNumberActivity" />
+        <activity android:name=".VerifyPhoneActivity" />
+        <activity android:name=".StoreMainActivity" />
+        <activity android:name=".Owner.OwnerMainActivity" />
         <activity android:name=".DemoActivity" />
         <activity android:name=".SplashActivity" />
         <activity android:name=".IntroActivity">

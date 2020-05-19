@@ -13,7 +13,8 @@
         android:id="@+id/appLogo"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="25dp">
 
         <ImageView
             android:transitionName="splash_logo_relay"
@@ -31,24 +32,27 @@
         android:gravity="center">
 
         <TextView
+            android:layout_marginTop="40dp"
             android:id="@+id/one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee"
             android:gravity="center"
-            android:text="verify phone no"
-            android:textSize="30sp" />
+            android:text="Enter OTP"
+            android:textSize="30sp"
+            android:textColor="@color/blueDark"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Enter code manually if not automatically authenticated"
+            android:text="Enter code manually if \nnot automatically authenticated"
             android:fontFamily="@font/antic"
             android:textStyle="bold"
             android:gravity="center"
-            android:textSize="15sp"
-            android:layout_below="@id/one"/>
+            android:textSize="18sp"
+            android:layout_below="@id/one"
+            android:textColor="@color/blueDark"/>
 
     </RelativeLayout>
 
@@ -57,22 +61,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="45dp"
+        android:paddingTop="45dp"
+        android:paddingStart="45dp"
+        android:paddingEnd="45dp"
         android:layout_below="@id/appText">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="25dp"
+        <!--<com.google.android.material.textfield.TextInputLayout
             android:id="@+id/verification_code_entered_by_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter OTP"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <com.chaos.view.PinView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_gravity="center"
+            app:itemCount="6"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            app:lineColor="@color/blueDark"
+            android:itemBackground="@color/backgroundWhite"
+            style="@style/PinWidget.PinView"
+            android:textSize="18sp"
+            app:itemRadius="5dp"
+            android:cursorVisible="true"
+            app:cursorColor="@color/blueDark"
+            app:hideLineWhenFilled="true"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,12 +102,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click to Re-send!"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
 
             <Button
                 android:id="@+id/resendVerificationCode"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="#00000000"
                 android:fontFamily="@font/quantico"
                 android:text="RESEND"
@@ -128,14 +146,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"/>
     </LinearLayout>
 
-    <ImageView
-        android:layout_below="@id/operationLay"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_bottom_welcome"
-        android:scaleType="fitXY"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="140dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="5dp"
+        android:text="BhiwandiCom."
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"/>
 
 </RelativeLayout>

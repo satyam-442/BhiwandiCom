@@ -54,7 +54,7 @@ public class WelcomeActivity extends AppCompatActivity
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regisPg = new Intent(WelcomeActivity.this, RegisterPhoneActivity.class);
+                Intent regisPg = new Intent(WelcomeActivity.this, AcceptNumberActivity.class);
                 startActivity(regisPg);
             }
         });

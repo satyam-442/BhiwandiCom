@@ -8,12 +8,16 @@ import com.example.bhiwandicom.Adapter.SliderAdapter;
 import com.example.bhiwandicom.Model.MainModel;
 import com.example.bhiwandicom.Model.Products;
 import com.example.bhiwandicom.Model.SliderModel;
+import com.example.bhiwandicom.Model.Store;
 import com.example.bhiwandicom.Prevalent.Prevalent;
+import com.example.bhiwandicom.ViewHolder.StoreViewHolder;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,6 +25,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,6 +33,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +45,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    RecyclerView recyclerViewCategory;
+    RecyclerView recyclerViewCategory, recyclerViewStore;
     ArrayList<MainModel> mainModels;
     MainAdapter mainAdapter;
     TextView marqueeText;
@@ -65,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     final long DELAYTIME = 3000;
     final long PERIODTIME = 3000;
 
-    DatabaseReference productRef;
+    DatabaseReference productRef, storeRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -81,16 +89,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //DATABASE REFERENCE's
         productRef = FirebaseDatabase.getInstance().getReference().child("Products");
+        storeRef = FirebaseDatabase.getInstance().getReference().child("Store");
+
+        //STORE RECYCLER VIEW
+        recyclerViewStore = (RecyclerView) findViewById(R.id.recyclerViewStore);
+        recyclerViewStore.setHasFixedSize(true);
+        LinearLayoutManager layoutManagerVer = new LinearLayoutManager(this);
+        layoutManagerVer.setReverseLayout(true);
+        layoutManagerVer.setStackFromEnd(true);
+        recyclerViewStore.setLayoutManager(layoutManagerVer);
+        //recyclerViewStore.setLayoutManager(layoutManagerVer);
 
         //HORIZONTAL RECYCLER VIEW
         recyclerViewCategory = findViewById(R.id.recyclerViewCategory);
-        Integer[] horiCategoryRecyclerViewImage = {R.drawable.htshirt,
-                R.drawable.fshirt,
-                R.drawable.trouser,
-                R.drawable.jeans,
-                R.drawable.wallet,
-                R.drawable.belts,
-                R.drawable.shoe};
+        Integer[] horiCategoryRecyclerViewImage = {R.drawable.htshirt, R.drawable.fshirt, R.drawable.trouser,
+                R.drawable.jeans, R.drawable.wallet, R.drawable.belts, R.drawable.shoe};
         String[] horiCategoryRecyclerViewText = {"Half Shirt","Full Shirt","Trouser","Jeans","Wallet","Belts","Shoe"};
 
         mainModels = new ArrayList<>();
@@ -100,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mainModels.add(model);
         }
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerViewCategory.setLayoutManager(layoutManager);
+        LinearLayoutManager layoutManagerHor = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewCategory.setLayoutManager(layoutManagerHor);
         recyclerViewCategory.setItemAnimator(new DefaultItemAnimator());
         mainAdapter = new MainAdapter(MainActivity.this,mainModels);
         recyclerViewCategory.setAdapter(mainAdapter);
@@ -194,14 +207,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-
-    /*@Override
+    @Override
     protected void onStart() {
         super.onStart();
-
-        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>().setQuery()
-
-    }*/
+        startListening();
+    }
 
     /////////PAGE LOOPER METHOD
     private void pageLooper()
@@ -319,4 +329,50 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
     //                || super.onSupportNavigateUp();
     //    }
+
+    private void startListening()
+    {
+        Query query = FirebaseDatabase.getInstance().getReference().child("Store").limitToLast(50);
+        FirebaseRecyclerOptions<Store> options = new FirebaseRecyclerOptions.Builder<Store>().setQuery(query,Store.class).build();
+        FirebaseRecyclerAdapter<Store, StoreViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Store, StoreViewHolder>(options)
+        {
+            @Override
+            protected void onBindViewHolder(@NonNull StoreViewHolder storeViewHolder, final int i, @NonNull final Store store)
+            {
+                storeViewHolder.txtStoreName.setText("Shop Name: " +store.getShopNamee());
+                String time = store.getFromTimee() + " to " + store.getToTimee();
+                storeViewHolder.txtStoreTime.setText("Opening Time " + time);
+                //storeViewHolder.txtProductPrice.setText(store.getPricee());
+                Picasso.with(MainActivity.this).load(store.getImagee()).into(storeViewHolder.storeImage);
+
+                storeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this,StoreMainActivity.class);
+                        intent.putExtra("storeName",store.getShopNamee());
+                        startActivity(intent);
+                        /*ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("pid",product.getPidd());
+                        bundle.putString("uid",userId);
+                        bundle.putString("imageUrl",product.getImagee());
+                        productDetailsFragment.setArguments(bundle);
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        transaction.replace(R.id.main_container,productDetailsFragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();*/
+                    }
+                });
+            }
+            @NonNull
+            @Override
+            public StoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_layout,parent,false);
+                StoreViewHolder holder = new StoreViewHolder(view);
+                return holder;
+            }
+        };
+        recyclerViewStore.setAdapter(firebaseRecyclerAdapter);
+        firebaseRecyclerAdapter.startListening();
+    }
 }
