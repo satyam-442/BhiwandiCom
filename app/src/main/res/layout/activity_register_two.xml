@@ -91,6 +91,7 @@
                     android:textSize="18sp"/>
 
                 <RadioGroup
+                    android:id="@+id/genderGroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
@@ -98,20 +99,35 @@
                     android:layout_marginTop="10dp">
 
                     <RadioButton
+                        android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Male"/>
+                        android:text="Male"
+                        android:onClick="checkButtom"/>
 
                     <RadioButton
+                        android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Female"/>
+                        android:text="Female"
+                        android:onClick="checkButtom"/>
 
                     <RadioButton
+                        android:id="@+id/others"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Others"/>
+                        android:text="Others"
+                        android:onClick="checkButtom"/>
+
                 </RadioGroup>
+
+                <EditText
+                    android:id="@+id/genderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="gender"
+                    android:gravity="center"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -128,11 +144,20 @@
                     android:textSize="18sp"/>
 
                 <DatePicker
+                    android:id="@+id/ageDatePicker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:datePickerMode="spinner"
                     android:calendarViewShown="false"
                     android:spinnersShown="true"/>
+
+                <EditText
+                    android:id="@+id/ageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="your age"
+                    android:gravity="center"/>
 
             </LinearLayout>
 
@@ -148,7 +173,6 @@
                 android:layout_marginTop="20dp"
                 android:elevation="5dp"
                 android:layout_marginBottom="5dp"
-                android:onClick="CallNextRegisterLastScreen"
                 android:transitionName="transition_next_btn"/>
 
             <Button

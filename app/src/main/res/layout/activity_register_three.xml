@@ -94,6 +94,7 @@
                     android:padding="5dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/acceptNoFromUser"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,7 +123,6 @@
                 android:layout_marginTop="20dp"
                 android:elevation="5dp"
                 android:layout_marginBottom="5dp"
-                android:onClick="CallNextRegisterScreen"
                 android:transitionName="transition_next_btn"/>
 
             <Button
