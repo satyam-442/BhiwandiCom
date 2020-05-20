@@ -35,6 +35,12 @@ public class RegisterThreeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterThreeActivity.this, VerifyPhoneActivity.class);
+                intent.putExtra("fullname",fullname);
+                intent.putExtra("email",email);
+                intent.putExtra("phone",phone);
+                intent.putExtra("password",password);
+                intent.putExtra("gender",gender);
+                intent.putExtra("age",age);
                 startActivity(intent);
             }
         });

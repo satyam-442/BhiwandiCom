@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.bhiwandicom.Model.User;
 import com.example.bhiwandicom.Prevalent.Prevalent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,7 @@ import io.paperdb.Paper;
 
 public class WelcomeActivity extends AppCompatActivity
 {
-
+    FirebaseAuth mAuth;
     Button login, register;
     ProgressDialog loadingBar;
 
@@ -36,6 +38,8 @@ public class WelcomeActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        mAuth = FirebaseAuth.getInstance();
 
         Paper.init(this);
 
@@ -80,6 +84,15 @@ public class WelcomeActivity extends AppCompatActivity
         }
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            SendUserToMainActivity();
+        }
     }
 
     private void AllowAccessToAccount(final String phone, final String password)

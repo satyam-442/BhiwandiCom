@@ -85,23 +85,23 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userContact"
+                    android:id="@+id/userEmailLogin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:hint="Phone"
+                    android:hint="Email"
                     android:textColorHint="@color/blueDark">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="phone" />
+                        android:inputType="textEmailAddress" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userPassword"
+                    android:id="@+id/userPasswordLogin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/signup_next_button"
+                android:id="@+id/signup_next_buttonLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_gradient_style"
@@ -161,7 +161,7 @@
                 android:transitionName="transition_next_btn"/>
 
             <Button
-                android:id="@+id/signup_login_button"
+                android:id="@+id/signup_register_buttonLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#00000000"

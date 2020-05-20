@@ -30,7 +30,10 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -56,9 +59,9 @@ import java.util.TimerTask;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private AppBarConfiguration mAppBarConfiguration;
+    FirebaseAuth mAuth;
 
     RecyclerView recyclerViewCategory, recyclerViewStore;
     ArrayList<MainModel> mainModels;
@@ -76,10 +79,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DatabaseReference productRef, storeRef;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
 
         Paper.init(this);
 
@@ -104,35 +108,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerViewCategory = findViewById(R.id.recyclerViewCategory);
         Integer[] horiCategoryRecyclerViewImage = {R.drawable.htshirt, R.drawable.fshirt, R.drawable.trouser,
                 R.drawable.jeans, R.drawable.wallet, R.drawable.belts, R.drawable.shoe};
-        String[] horiCategoryRecyclerViewText = {"Half Shirt","Full Shirt","Trouser","Jeans","Wallet","Belts","Shoe"};
+        String[] horiCategoryRecyclerViewText = {"Half Shirt", "Full Shirt", "Trouser", "Jeans", "Wallet", "Belts", "Shoe"};
 
         mainModels = new ArrayList<>();
-        for (int i=0; i<horiCategoryRecyclerViewImage.length; i++)
-        {
-            MainModel model = new MainModel(horiCategoryRecyclerViewImage[i],horiCategoryRecyclerViewText[i]);
+        for (int i = 0; i < horiCategoryRecyclerViewImage.length; i++) {
+            MainModel model = new MainModel(horiCategoryRecyclerViewImage[i], horiCategoryRecyclerViewText[i]);
             mainModels.add(model);
         }
 
-        LinearLayoutManager layoutManagerHor = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager layoutManagerHor = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewCategory.setLayoutManager(layoutManagerHor);
         recyclerViewCategory.setItemAnimator(new DefaultItemAnimator());
-        mainAdapter = new MainAdapter(MainActivity.this,mainModels);
+        mainAdapter = new MainAdapter(MainActivity.this, mainModels);
         recyclerViewCategory.setAdapter(mainAdapter);
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Snackbar.make(view, "Your cart product will be display here", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView userImage = headerView.findViewById(R.id.user_profile_image);
 
-        userNameTextView.setText(Prevalent.currentOnlineUser.getNamee());
+        //userNameTextView.setText(Prevalent.currentOnlineUser.getNamee());
 
         marqueeText = (TextView) findViewById(R.id.moving_text_notification);
         marqueeText.setSelected(true);
@@ -170,22 +171,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-            {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
 
             @Override
-            public void onPageSelected(int position)
-            {
+            public void onPageSelected(int position) {
                 currentPage = position;
             }
 
             @Override
-            public void onPageScrollStateChanged(int state)
-            {
-                if (state == ViewPager.SCROLL_STATE_IDLE)
-                {
+            public void onPageScrollStateChanged(int state) {
+                if (state == ViewPager.SCROLL_STATE_IDLE) {
                     pageLooper();
                 }
             }
@@ -198,8 +195,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean onTouch(View v, MotionEvent event) {
                 pageLooper();
                 stopBannerAnimation();
-                if (event.getAction() == MotionEvent.ACTION_UP)
-                {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
                     startBannerAnimation();
                 }
                 return false;
@@ -210,79 +206,75 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            SendUserToLoginActivity();
+        }
         startListening();
     }
 
+    private void SendUserToLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
     /////////PAGE LOOPER METHOD
-    private void pageLooper()
-    {
-        if (currentPage == sliderModelList.size() - 2)
-        {
+    private void pageLooper() {
+        if (currentPage == sliderModelList.size() - 2) {
             currentPage = 2;
-            bannerSlider.setCurrentItem(currentPage,false);
+            bannerSlider.setCurrentItem(currentPage, false);
         }
-        if (currentPage == 1)
-        {
+        if (currentPage == 1) {
             currentPage = sliderModelList.size() - 3;
-            bannerSlider.setCurrentItem(currentPage,false);
+            bannerSlider.setCurrentItem(currentPage, false);
         }
     }
 
-    private void startBannerAnimation()
-    {
-        final Handler handler  = new Handler();
+    private void startBannerAnimation() {
+        final Handler handler = new Handler();
         final Runnable update = new Runnable() {
             @Override
             public void run() {
-                if (currentPage >= sliderModelList.size())
-                {
+                if (currentPage >= sliderModelList.size()) {
                     currentPage = 1;
                 }
-                bannerSlider.setCurrentItem(currentPage++,true);
+                bannerSlider.setCurrentItem(currentPage++, true);
             }
         };
         timer = new Timer();
-        timer.schedule(new TimerTask()
-        {
+        timer.schedule(new TimerTask() {
             @Override
-            public void run()
-            {
+            public void run() {
                 handler.post(update);
                 //40:43
             }
-        },DELAYTIME,PERIODTIME);
+        }, DELAYTIME, PERIODTIME);
     }
 
-    private void stopBannerAnimation()
-    {
+    private void stopBannerAnimation() {
         timer.cancel();
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else
-        {
+        } else {
             super.onBackPressed();
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-    {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 //        if (id==R.id.action_settings)
 //        {
@@ -294,27 +286,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_cart)
-        {
+        if (id == R.id.nav_cart) {
 
-        }
-        else if (id == R.id.nav_orders)
-        {
+        } else if (id == R.id.nav_orders) {
 
-        }
-        else if (id == R.id.nav_category)
-        {
+        } else if (id == R.id.nav_category) {
 
-        }
-        else if (id == R.id.nav_settings)
-        {
+        } else if (id == R.id.nav_settings) {
 
-        }
-        else if (id == R.id.nav_logout)
-        {
+        } else if (id == R.id.nav_logout) {
             Paper.book().destroy();
-            Intent logIn = new Intent(MainActivity.this,LoginPhoneActivity.class);
-            logIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent logIn = new Intent(MainActivity.this, LoginPhoneActivity.class);
+            logIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(logIn);
             finish();
         }
@@ -330,16 +313,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //                || super.onSupportNavigateUp();
     //    }
 
-    private void startListening()
-    {
+    private void startListening() {
         Query query = FirebaseDatabase.getInstance().getReference().child("Store").limitToLast(50);
-        FirebaseRecyclerOptions<Store> options = new FirebaseRecyclerOptions.Builder<Store>().setQuery(query,Store.class).build();
-        FirebaseRecyclerAdapter<Store, StoreViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Store, StoreViewHolder>(options)
-        {
+        FirebaseRecyclerOptions<Store> options = new FirebaseRecyclerOptions.Builder<Store>().setQuery(query, Store.class).build();
+        FirebaseRecyclerAdapter<Store, StoreViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Store, StoreViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull StoreViewHolder storeViewHolder, final int i, @NonNull final Store store)
-            {
-                storeViewHolder.txtStoreName.setText("Shop Name: " +store.getShopNamee());
+            protected void onBindViewHolder(@NonNull StoreViewHolder storeViewHolder, final int i, @NonNull final Store store) {
+                storeViewHolder.txtStoreName.setText("Shop Name: " + store.getShopNamee());
                 String time = store.getFromTimee() + " to " + store.getToTimee();
                 storeViewHolder.txtStoreTime.setText("Opening Time " + time);
                 //storeViewHolder.txtProductPrice.setText(store.getPricee());
@@ -348,8 +328,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 storeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this,StoreMainActivity.class);
-                        intent.putExtra("storeName",store.getShopNamee());
+                        Intent intent = new Intent(MainActivity.this, StoreMainActivity.class);
+                        intent.putExtra("storeName", store.getShopNamee());
                         startActivity(intent);
                         /*ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
                         Bundle bundle = new Bundle();
@@ -364,10 +344,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
             }
+
             @NonNull
             @Override
             public StoreViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_layout,parent,false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store_layout, parent, false);
                 StoreViewHolder holder = new StoreViewHolder(view);
                 return holder;
             }

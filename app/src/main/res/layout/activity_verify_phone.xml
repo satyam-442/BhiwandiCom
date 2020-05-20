@@ -75,6 +75,7 @@
         </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.chaos.view.PinView
+            android:id="@+id/verification_send_by_the_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
