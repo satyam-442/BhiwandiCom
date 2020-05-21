@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FeedbackFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/feedbackTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="Feedback"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="33sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/nameLayout"
+                android:layout_below="@id/feedbackTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Your name:"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"/>
+
+                <EditText
+                    android:id="@+id/feedbackName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="John The Ripper"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="20sp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
+                    android:background="@drawable/input_back"
+                    android:paddingStart="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/spinnerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameLayout"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Where we lack:"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"/>
+
+                <Spinner
+                    android:id="@+id/selectOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:id="@+id/feedbackSpinnerValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Your value be stored here"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
+                    android:background="@drawable/input_back"
+                    android:paddingStart="15dp"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/feedbackSpinnerOtherOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="Define your problem"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat"
+                    android:background="@drawable/input_back"
+                    android:paddingStart="15dp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="submit"
+                android:textSize="18sp"
+                android:background="#00000000"
+                android:textAllCaps="true"
+                android:layout_marginStart="25dp"
+                android:fontFamily="@font/montserrat"
+                android:layout_below="@id/spinnerLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

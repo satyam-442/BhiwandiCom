@@ -5,6 +5,24 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/default_avatar"
+            android:title="Profile"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
+            android:id="@+id/nav_store"
+            android:icon="@drawable/shop_draw"
+            android:title="Stores"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
             android:id="@+id/nav_cart"
             android:icon="@drawable/cart"
             android:title="Shopping Cart"
@@ -26,6 +44,24 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
             android:title="Settings"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/category"
+            android:title="About Us"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
+            android:id="@+id/nav_contactus"
+            android:icon="@drawable/contact"
+            android:title="Contact Us"
+            android:iconTint="@color/whiteShade"/>
+
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/feedback"
+            android:title="Feedback"
             android:iconTint="@color/whiteShade"/>
 
         <item
