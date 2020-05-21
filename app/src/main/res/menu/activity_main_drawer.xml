@@ -35,12 +35,6 @@
             android:iconTint="@color/whiteShade"/>
 
         <item
-            android:id="@+id/nav_category"
-            android:icon="@drawable/category"
-            android:title="Categories"
-            android:iconTint="@color/whiteShade"/>
-
-        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
             android:title="Settings"
