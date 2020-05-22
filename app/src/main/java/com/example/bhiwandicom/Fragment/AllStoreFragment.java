@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -95,19 +96,17 @@ public class AllStoreFragment extends Fragment {
                 storeViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getActivity(), StoreMainActivity.class);
+                        /*Intent intent = new Intent(getActivity(), StoreMainActivity.class);
                         intent.putExtra("storeName", store.getShopNamee());
-                        startActivity(intent);
-                        /*ProductDetailsFragment productDetailsFragment = new ProductDetailsFragment();
+                        startActivity(intent);*/
+                        StoreMainProfileFragment storeMainProfileFragment = new StoreMainProfileFragment();
                         Bundle bundle = new Bundle();
-                        bundle.putString("pid",product.getPidd());
-                        bundle.putString("uid",userId);
-                        bundle.putString("imageUrl",product.getImagee());
-                        productDetailsFragment.setArguments(bundle);
+                        bundle.putString("storeName", store.getShopNamee());
+                        storeMainProfileFragment.setArguments(bundle);
                         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                        transaction.replace(R.id.main_container,productDetailsFragment);
+                        transaction.replace(R.id.nav_host_fragment,storeMainProfileFragment);
                         transaction.addToBackStack(null);
-                        transaction.commit();*/
+                        transaction.commit();
                     }
                 });
             }

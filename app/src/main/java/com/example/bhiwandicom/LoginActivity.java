@@ -67,6 +67,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         signup_register_buttonLogin = findViewById(R.id.signup_register_buttonLogin);
+        signup_register_buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SendUserToRegisterActivity();
+            }
+        });
 
         forgot_password = findViewById(R.id.forget_password);
         forgot_password.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +85,13 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent, options.toBundle());
             }
         });
+    }
+
+    private void SendUserToRegisterActivity() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override

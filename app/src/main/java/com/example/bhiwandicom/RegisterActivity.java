@@ -41,6 +41,16 @@ public class RegisterActivity extends AppCompatActivity {
         backButton = findViewById(R.id.signup_back_button);
         next = findViewById(R.id.signup_next_button);
         login = findViewById(R.id.signup_login_button);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         titleText = findViewById(R.id.signup_title_text);
 
         userFullName = findViewById(R.id.userFullName);

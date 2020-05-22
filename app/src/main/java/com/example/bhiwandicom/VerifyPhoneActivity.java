@@ -46,7 +46,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
         fullname = getIntent().getStringExtra("fullname");
         email = getIntent().getStringExtra("email");
-        phone = getIntent().getStringExtra("phone");
         password = getIntent().getStringExtra("password");
         gender = getIntent().getStringExtra("gender");
         age = getIntent().getStringExtra("age");
@@ -81,7 +80,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
     }
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
@@ -104,7 +102,6 @@ public class VerifyPhoneActivity extends AppCompatActivity {
     };
 
     private void verifyCode(String codeByUser) {
-
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, codeByUser);
         signInUserWithCredential(credential);
     }

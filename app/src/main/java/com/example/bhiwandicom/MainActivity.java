@@ -10,7 +10,10 @@ import com.example.bhiwandicom.Fragment.AllStoreFragment;
 import com.example.bhiwandicom.Fragment.ContactUsFragment;
 import com.example.bhiwandicom.Fragment.FeedbackFragment;
 import com.example.bhiwandicom.Fragment.HomeFragment;
+import com.example.bhiwandicom.Fragment.OrdersFragment;
 import com.example.bhiwandicom.Fragment.ProfileFragment;
+import com.example.bhiwandicom.Fragment.SettingFragment;
+import com.example.bhiwandicom.Fragment.ShoppingCartFragment;
 import com.example.bhiwandicom.Model.MainModel;
 import com.example.bhiwandicom.Model.Products;
 import com.example.bhiwandicom.Model.SliderModel;
@@ -65,7 +68,7 @@ import java.util.TimerTask;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -219,6 +222,18 @@ public class MainActivity extends AppCompatActivity{
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new ProfileFragment()).commit();
+                break;
+            case R.id.nav_settings:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new SettingFragment()).commit();
+                break;
+            case R.id.nav_cart:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new ShoppingCartFragment()).commit();
+                break;
+            case R.id.nav_orders:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new OrdersFragment()).commit();
                 break;
             case R.id.nav_aboutus:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,

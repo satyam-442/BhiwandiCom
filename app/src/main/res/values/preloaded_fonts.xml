@@ -7,6 +7,7 @@
         <item>@font/bangers</item>
         <item>@font/bitter</item>
         <item>@font/bungee</item>
+        <item>@font/cantarell_bold</item>
         <item>@font/chewy</item>
         <item>@font/croissant_one</item>
         <item>@font/montserrat</item>
@@ -15,5 +16,6 @@
         <item>@font/muli_extralight</item>
         <item>@font/pacifico</item>
         <item>@font/quantico</item>
+        <item>@font/ramabhadra</item>
     </array>
 </resources>
