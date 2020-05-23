@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.bhiwandicom.R;
 
@@ -13,12 +14,16 @@ public class AdminCategoryActivity extends AppCompatActivity
 {
 
     ImageView HalfShirt, FullShirt, Trouser, Jeans, Wallets, Shoes, Belts;
+    String shopName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_category);
+
+        shopName = getIntent().getStringExtra("shopName");
+        //Toast.makeText(this, shopName, Toast.LENGTH_SHORT).show();
 
         HalfShirt = (ImageView) findViewById(R.id.htshirt);
         FullShirt = (ImageView) findViewById(R.id.fshirt);
@@ -33,6 +38,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 intent.putExtra("category","HalfShirt");
+                intent.putExtra("shopName",shopName);
                 startActivity(intent);
             }
         });
@@ -42,6 +48,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent fullintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 fullintent.putExtra("category","FullShirt");
+                fullintent.putExtra("shopName",shopName);
                 startActivity(fullintent);
             }
         });
@@ -51,6 +58,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent trouserintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 trouserintent.putExtra("category","Trouser");
+                trouserintent.putExtra("shopName",shopName);
                 startActivity(trouserintent);
             }
         });
@@ -60,6 +68,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent jeansintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 jeansintent.putExtra("category","Jeans");
+                jeansintent.putExtra("shopName",shopName);
                 startActivity(jeansintent);
             }
         });
@@ -69,6 +78,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent walletsintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 walletsintent.putExtra("category","Wallets");
+                walletsintent.putExtra("shopName",shopName);
                 startActivity(walletsintent);
             }
         });
@@ -78,6 +88,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent Beltsintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 Beltsintent.putExtra("category","Belts");
+                Beltsintent.putExtra("shopName",shopName);
                 startActivity(Beltsintent);
             }
         });
@@ -87,6 +98,7 @@ public class AdminCategoryActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent Shoesintent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
                 Shoesintent.putExtra("category","Shoes");
+                Shoesintent.putExtra("shopName",shopName);
                 startActivity(Shoesintent);
             }
         });

@@ -42,7 +42,7 @@
                 android:id="@+id/htshirt"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/htshirt"/>
+                android:src="@drawable/half_sleeve"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                 android:id="@+id/fshirt"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/fshirt"/>
+                android:src="@drawable/full_sleeve"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
                 android:id="@+id/trouser"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/trouser"/>
+                android:src="@drawable/track_pants"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
                 android:id="@+id/jeans"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/jeans"/>
+                android:src="@drawable/jeansnew"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                 android:id="@+id/wallet"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/wallet"/>
+                android:src="@drawable/wallet_new"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -182,7 +182,7 @@
                 android:id="@+id/shoe"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/shoe"/>
+                android:src="@drawable/shoe_new"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +217,7 @@
                 android:id="@+id/belts"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/belts"/>
+                android:src="@drawable/belt_new"/>
 
             <TextView
                 android:layout_width="wrap_content"

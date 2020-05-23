@@ -35,7 +35,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity
 {
 
     EditText productName, productDescription, productCost, productDiscount;
-    String CategoryName, Descriptiion, Price, Pname, Discount, saveCurrentDate, saveCurrentTime;
+    String CategoryName, Descriptiion, Price, Pname, Discount, saveCurrentDate, saveCurrentTime, shopName;
     Button addProduct;
     ImageView productImage;
     static final int GalleryPick = 1;
@@ -53,6 +53,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity
         setContentView(R.layout.activity_admin_add_new_product);
 
         CategoryName = getIntent().getExtras().get("category").toString();
+        shopName = getIntent().getExtras().get("shopName").toString();
+
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
         productRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
@@ -195,7 +197,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity
         productMap.put("image",downloadImageUrl);
         productMap.put("Price",Price);
         productMap.put("Pname",Pname);
-        productRef.child(CategoryName).child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>()
+        productMap.put("ShopName",shopName);
+        productRef.child(shopName).child(CategoryName).child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>()
         {
             @Override
             public void onComplete(@NonNull Task<Void> task)
@@ -205,6 +208,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity
                     loadingBar.dismiss();
                     Toast.makeText(AdminAddNewProductActivity.this, "Product has been uploaded to server", Toast.LENGTH_SHORT).show();
                     Intent newIn = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                    newIn.putExtra("shopName",shopName);
+                    newIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(newIn);
                     finish();
                 }

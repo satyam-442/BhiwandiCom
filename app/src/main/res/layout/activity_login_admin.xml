@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".LoginActivity"
+    tools:context=".Admin.LoginAdminActivity"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:transitionName="transition_login">
 
@@ -70,7 +70,7 @@
                     android:layout_gravity="start"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/muli_black"
-                    android:text="Login"
+                    android:text="Admin Login"
                     android:textAllCaps="true"
                     android:textColor="@color/blueDark"
                     android:textSize="30sp"
@@ -85,18 +85,18 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userEmailLogin"
+                    android:id="@+id/userPhoneLogin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:hint="Email"
+                    android:hint="Phone"
                     android:textColorHint="@color/blueDark">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="phone" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,7 +133,7 @@
                     android:textColor="@color/blueDark"
                     android:layout_centerVertical="true"/>
 
-                <Button
+                <!--<Button
                     android:id="@+id/forget_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                     android:elevation="5dp"
                     android:text="Forget Password?"
                     android:textColor="@color/blueDark"
-                    android:transitionName="transition_forgotPwd" />
+                    android:transitionName="transition_forgotPwd" />-->
             </RelativeLayout>
 
             <Button

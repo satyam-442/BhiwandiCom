@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     Button forgot_password, signup_next_buttonLogin, signup_register_buttonLogin;
     TextInputLayout userEmailLogin, userPasswordLogin;
     ProgressDialog loadingBar;
+    Button loginNotAdminButton, loginAdminButton;
+    String parentDBName = "Users";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         userEmailLogin = findViewById(R.id.userEmailLogin);
         userPasswordLogin = findViewById(R.id.userPasswordLogin);
+
         signup_next_buttonLogin = findViewById(R.id.signup_next_buttonLogin);
         signup_next_buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override

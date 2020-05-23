@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bhiwandicom.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,11 +27,12 @@ import com.squareup.picasso.Picasso;
 
 public class StoreMainProfileFragment extends Fragment {
 
-    DatabaseReference shopRef;
+    DatabaseReference shopRef, productRef;
     String storeName;
     TextView shopName, shopTime, shopOwnerName, shopOwnerPhone, shopAddress;
     ImageView shopLogo;
     Toolbar toolbar;
+    MaterialCardView half, full, jeans, trackpants, shoe, wallet, belts;
 
     public StoreMainProfileFragment() {
     }
@@ -44,9 +46,11 @@ public class StoreMainProfileFragment extends Fragment {
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Store Main Page");
 
-        shopRef = FirebaseDatabase.getInstance().getReference().child("Store");
-
         storeName = getArguments().getString("storeName");
+
+        shopRef = FirebaseDatabase.getInstance().getReference().child("Store");
+        productRef = FirebaseDatabase.getInstance().getReference().child("Products").child(storeName);
+
         //Toast.makeText(getActivity(), storeName, Toast.LENGTH_LONG).show();
 
         shopName = view.findViewById(R.id.shopName);
@@ -55,6 +59,14 @@ public class StoreMainProfileFragment extends Fragment {
         shopOwnerPhone = view.findViewById(R.id.shopOwnerPhone);
         shopAddress = view.findViewById(R.id.shopAddress);
         shopLogo = view.findViewById(R.id.shopLogo);
+
+        half = view.findViewById(R.id.half);
+        full = view.findViewById(R.id.full);
+        jeans = view.findViewById(R.id.jeans);
+        trackpants = view.findViewById(R.id.trackpants);
+        shoe = view.findViewById(R.id.shoe);
+        wallet = view.findViewById(R.id.wallet);
+        belts = view.findViewById(R.id.belt);
 
         shopRef.child(storeName).addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,6 +101,38 @@ public class StoreMainProfileFragment extends Fragment {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
+
+        productRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("FullShirt")){
+                    full.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("HalfShirt")){
+                    half.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("Jeans")){
+                    jeans.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("Shoes")){
+                    shoe.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("Trouser")){
+                    trackpants.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("Wallets")){
+                    wallet.setVisibility(View.VISIBLE);
+                }
+                if (dataSnapshot.hasChild("Belts")){
+                    belts.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
         });
         return view;
     }

@@ -1,11 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_blue_500"
-    android:gravity="center">
+    tools:context=".WelcomeActivity">
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="BhiwandiCom."
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#504F60"
+        android:fontFamily="@font/montserrat_bold"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat"
+        android:text="get anything from anywhere"
+        android:textColor="#504F60"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/moving_text_advertisement"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/textView2"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/girlwithlaptop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/yellow"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Everything for your comfort, Only here!"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/welcomeLoginButton"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttongradientwelcome"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="Sign In"
+            android:elevation="10dp"
+            android:textSize="17sp"
+            android:transitionName="transition_login"/>
+
+        <Button
+            android:id="@+id/welcomeRegisterButton"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttongradientwelcome"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:elevation="10dp"
+            android:textAllCaps="false"
+            android:text="Create Account"
+            android:textSize="17sp"
+            android:transitionName="transition_register"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

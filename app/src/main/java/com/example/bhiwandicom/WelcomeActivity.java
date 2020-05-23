@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.bhiwandicom.Admin.LoginAdminActivity;
 import com.example.bhiwandicom.Model.User;
 import com.example.bhiwandicom.Prevalent.Prevalent;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +31,7 @@ import io.paperdb.Paper;
 public class WelcomeActivity extends AppCompatActivity
 {
     FirebaseAuth mAuth;
-    Button login, register;
+    Button login, register, welcomeLoginButtonTwo;
     ProgressDialog loadingBar;
 
     @Override
@@ -45,7 +46,18 @@ public class WelcomeActivity extends AppCompatActivity
 
         login = (Button) findViewById(R.id.welcomeLoginButton);
         register = (Button) findViewById(R.id.welcomeRegisterButton);
+        welcomeLoginButtonTwo = findViewById(R.id.welcomeLoginButtonTwo);
+        welcomeLoginButtonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginPg = new Intent(WelcomeActivity.this, LoginAdminActivity.class);
 
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View,String>(login,"transition_login");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(WelcomeActivity.this,pairs);
+                startActivity(loginPg,options.toBundle());
+            }
+        });
 
         loadingBar = new ProgressDialog(this);
 
