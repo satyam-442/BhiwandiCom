@@ -136,6 +136,7 @@
                     android:padding="25dp"/>
 
                 <Button
+                    android:id="@+id/halfBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -178,6 +179,7 @@
                     android:layout_alignParentRight="true"/>
 
                 <Button
+                    android:id="@+id/fullBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -219,6 +221,7 @@
                     android:padding="25dp"/>
 
                 <Button
+                    android:id="@+id/jeansBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -261,6 +264,7 @@
                     android:layout_alignParentRight="true"/>
 
                 <Button
+                    android:id="@+id/trackpantsBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -302,6 +306,7 @@
                     android:padding="25dp"/>
 
                 <Button
+                    android:id="@+id/shoeBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -344,6 +349,7 @@
                     android:layout_alignParentRight="true"/>
 
                 <Button
+                    android:id="@+id/walletBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"
@@ -385,6 +391,7 @@
                     android:padding="25dp"/>
 
                 <Button
+                    android:id="@+id/beltBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Expand All"

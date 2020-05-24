@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,7 @@ public class StoreMainProfileFragment extends Fragment {
     ImageView shopLogo;
     Toolbar toolbar;
     MaterialCardView half, full, jeans, trackpants, shoe, wallet, belts;
+    Button halfBtn, fullBtn, jeansBtn, trackpantsBtn, shoeBtn, walletBtn, beltsBtn;
 
     public StoreMainProfileFragment() {
     }
@@ -68,6 +71,14 @@ public class StoreMainProfileFragment extends Fragment {
         wallet = view.findViewById(R.id.wallet);
         belts = view.findViewById(R.id.belt);
 
+        halfBtn = view.findViewById(R.id.halfBtn);
+        fullBtn = view.findViewById(R.id.fullBtn);
+        jeansBtn = view.findViewById(R.id.jeansBtn);
+        trackpantsBtn = view.findViewById(R.id.trackpantsBtn);
+        shoeBtn = view.findViewById(R.id.shoeBtn);
+        walletBtn = view.findViewById(R.id.walletBtn);
+        beltsBtn = view.findViewById(R.id.beltBtn);
+
         shopRef.child(storeName).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -90,6 +101,7 @@ public class StoreMainProfileFragment extends Fragment {
                         Picasso.with(getActivity()).load(image).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.default_avatar).into(shopLogo, new Callback() {
                             @Override
                             public void onSuccess() {
+
                             }
                             @Override
                             public void onError() {
@@ -108,31 +120,127 @@ public class StoreMainProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild("FullShirt")){
                     full.setVisibility(View.VISIBLE);
+                    fullBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "FullShirt");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("HalfShirt")){
                     half.setVisibility(View.VISIBLE);
+                    halfBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "HalfShirt");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("Jeans")){
                     jeans.setVisibility(View.VISIBLE);
+                    jeansBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "Jeans");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("Shoes")){
                     shoe.setVisibility(View.VISIBLE);
+                    shoeBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "Shoes");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("Trouser")){
                     trackpants.setVisibility(View.VISIBLE);
+                    trackpantsBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "Trouser");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("Wallets")){
                     wallet.setVisibility(View.VISIBLE);
+                    walletBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "Wallets");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
                 if (dataSnapshot.hasChild("Belts")){
                     belts.setVisibility(View.VISIBLE);
+                    beltsBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ProductListFragment productListFragment = new ProductListFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putString("storeName", storeName);
+                            bundle.putString("category", "Belts");
+                            productListFragment.setArguments(bundle);
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.nav_host_fragment,productListFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
         return view;
     }

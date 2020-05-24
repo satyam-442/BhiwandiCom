@@ -2,12 +2,12 @@ package com.example.bhiwandicom.Model;
 
 public class Products
 {
-    String Category, Date, Description, Pname, Price, Time, image, pid;
+    public String Category, Date, Description, Pname, Price, Time, image, pid, ShopName;
 
     public Products() {
     }
 
-    public Products(String category, String date, String description, String pname, String price, String time, String image, String pid) {
+    public Products(String category, String date, String description, String pname, String price, String time, String image, String pid, String shopName) {
         Category = category;
         Date = date;
         Description = description;
@@ -16,6 +16,7 @@ public class Products
         Time = time;
         this.image = image;
         this.pid = pid;
+        ShopName = shopName;
     }
 
     public String getCategoryy() {
@@ -80,5 +81,13 @@ public class Products
 
     public void setPidd(String pid) {
         this.pid = pid;
+    }
+
+    public String getShopNamee() {
+        return ShopName;
+    }
+
+    public void setShopNamee(String shopName) {
+        ShopName = shopName;
     }
 }
