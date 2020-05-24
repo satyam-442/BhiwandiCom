@@ -3,6 +3,8 @@ package com.example.bhiwandicom.Fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +31,7 @@ public class ProductListFragment extends Fragment {
     String storeName, category, currentUserId;
     RecyclerView productsRec;
     RecyclerView.LayoutManager layoutManager;
+    Toolbar toolbar;
 
     public ProductListFragment() {
     }
@@ -41,6 +44,10 @@ public class ProductListFragment extends Fragment {
         currentUserId = mAuth.getCurrentUser().getUid();
         storeName = getArguments().getString("storeName");
         category = getArguments().getString("category");
+
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Product List");
 
         productsRec = view.findViewById(R.id.productList);
         productsRec.setHasFixedSize(true);
@@ -78,6 +85,8 @@ public class ProductListFragment extends Fragment {
                         Bundle bundle = new Bundle();
                         bundle.putString("pid", product.getPidd());
                         bundle.putString("uid", currentUserId);
+                        bundle.putString("storeName", storeName);
+                        bundle.putString("category", category);
                         bundle.putString("imageUrl", product.getImagee());
                         productDetailsFragment.setArguments(bundle);
                         FragmentTransaction transaction = getFragmentManager().beginTransaction();
